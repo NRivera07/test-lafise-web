@@ -1,9 +1,12 @@
 import { getAccounts } from "@/services/account.services";
-import { useQuery } from "@tanstack/react-query";
+import { useQueries } from "@tanstack/react-query";
 
-export function useAccounts(accountId: number) {
-  return useQuery({
-    queryKey: ["accounts"],
-    queryFn: () => getAccounts(accountId),
+export function useAccounts(accountIds: number[] = []) {
+  return useQueries({
+    queries: accountIds.map((accountId) => ({
+      queryKey: ["account", accountId],
+      queryFn: () => getAccounts(accountId),
+      enabled: !!accountId,
+    })),
   });
 }
