@@ -1,6 +1,6 @@
 export interface Product {
   type: string;
-  id: string;
+  id: number;
 }
 
 export interface User {
