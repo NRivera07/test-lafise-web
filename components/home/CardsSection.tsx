@@ -4,7 +4,7 @@ import { cards } from "@/data/cards";
 export default function CardsSection() {
   return (
     <section>
-      <h1 className="text-[24px] font-semibold text-text-primary mb-6">
+      <h1 className="text-[20px] font-semibold text-text-primary mb-6">
         Mis tarjetas
       </h1>
 
