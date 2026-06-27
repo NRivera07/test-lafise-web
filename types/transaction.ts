@@ -20,3 +20,12 @@ export interface TransactionsResponse {
   total_count: number;
   items: Transaction[];
 }
+
+export interface CreateTransactionRequest {
+  origin: string;
+  destination: string;
+  amount: {
+    currency: string;
+    value: number;
+  };
+}
