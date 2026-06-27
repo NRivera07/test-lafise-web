@@ -13,7 +13,11 @@ export default function FloatingInput({
   ...props
 }: FloatingInputProps) {
   const hasValue =
-    value !== undefined && value !== null && String(value).length > 0;
+    typeof value === "number"
+      ? Number.isFinite(value)
+      : typeof value === "string"
+        ? value.trim() !== ""
+        : false;
 
   return (
     <div className="relative">
