@@ -3,15 +3,17 @@
 import { useUserStore } from "@/store/user.store";
 import { useTransactions } from "@/hooks/useTransactions";
 import TransactionsTable from "../transactions/TransactionTable";
+import TransactionSkeleton from "../transactions/TransactionSkeleton";
+import TransactionEmpty from "../transactions/TransactionEmpty";
 
 export default function TransactionsSection() {
   const user = useUserStore((state) => state.user);
 
   const queries = useTransactions(user?.products?.map((p) => p.id) ?? []);
 
-  const loading = queries.some((q) => q.isLoading);
+  const hasQueries = queries.length > 0;
 
-  if (loading) return null;
+  const isPending = !hasQueries || queries.some((query) => query.isPending);
 
   const transactions = queries.flatMap((query) => query.data?.items ?? []);
 
@@ -26,8 +28,13 @@ export default function TransactionsSection() {
           Ver todas
         </button>
       </div>
-
-      <TransactionsTable transactions={transactions} />
+      {isPending ? (
+        <TransactionSkeleton />
+      ) : transactions.length === 0 ? (
+        <TransactionEmpty />
+      ) : (
+        <TransactionsTable transactions={transactions} />
+      )}
     </section>
   );
 }
