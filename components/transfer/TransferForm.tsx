@@ -17,22 +17,18 @@ import TransferConfirmModal from "./TransferConfirmationModal";
 import { useTransfer } from "@/hooks/useTransfer";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
-import { useQueryClient } from "@tanstack/react-query";
 
 export default function TransferForm() {
   const user = useUserStore((state) => state.user);
 
   const route = useRouter();
   const setTransfer = useTransferStore((state) => state.setTransfer);
+  const addTransaction = useTransferStore((state) => state.addTransaction);
 
   const [open, setOpen] = useState(false);
 
-  const clearTransfer = useTransferStore((state) => state.clearTransfer);
-
   const { mutateAsync, isPending } = useTransfer();
-
-  const queryClient = useQueryClient();
-
+  
   const accountQueries = useAccounts(
     user?.products.map((product) => product.id) ?? [],
   );
@@ -100,12 +96,13 @@ export default function TransferForm() {
         },
       });
 
+      addTransaction(transaction);
+
       toast.success(
         `Transferencia número ${transaction.transaction_number} realizada correctamente.`,
       );
 
       setOpen(false);
-      clearTransfer();
 
       route.push("/");
     } catch (error) {
