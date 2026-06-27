@@ -3,9 +3,10 @@ import TransactionRow from "./TransactionRow";
 
 interface Props {
   transactions: Transaction[];
+  tab?: string;
 }
 
-export default function TransactionsTable({ transactions }: Props) {
+export default function TransactionsTable({ transactions, tab }: Props) {
   return (
     <div className="mt-6 rounded-[4px] border border-[#DFE1DF] bg-white overflow-hidden">
       <table className="w-full">

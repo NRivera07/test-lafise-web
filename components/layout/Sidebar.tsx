@@ -25,7 +25,7 @@ const menu = [
   },
   {
     label: "Mis transacciones",
-    href: "/my-transactions",
+    href: "/transactions",
     icon: "/icons/my-transactions.svg",
     activeIcon: "/icons/my-transactions-active.svg",
   },

@@ -11,15 +11,15 @@ export default function TransactionRow({ transaction }: TransactionRowProps) {
         {transaction.transaction_number}
       </td>
 
-      <td className="px-4 py-5 text-[14px] text-text-primary">
+      <td className="py-5 text-[14px] text-text-primary">
         {transaction.description}
       </td>
 
-      <td className="px-4 py-5 text-[14px] text-text-primary">
+      <td className="py-5 text-[14px] text-text-primary">
         {transaction.amount.value.toFixed(2)}
       </td>
 
-      <td className="px-4 py-5 text-[14px] text-text-primary">
+      <td className="py-5 text-[14px] text-text-primary">
         {transaction.amount.value.toFixed(2)}
       </td>
     </tr>
