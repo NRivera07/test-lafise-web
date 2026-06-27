@@ -13,7 +13,7 @@ export default function DashboardLayout({
       <main className="flex-1 flex flex-col">
         <Header />
 
-        <section className="p-8 overflow-auto flex-1">{children}</section>
+        <section className="px-6 py-12 overflow-auto flex-1">{children}</section>
       </main>
     </div>
   );
