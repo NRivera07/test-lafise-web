@@ -37,6 +37,8 @@ export default function TransferForm() {
     [accountQueries],
   );
 
+  // Se establece el paso 4 para mantener la apariencia definida en el Figma,
+  // donde los tres pasos anteriores se muestran como completados.
   const currentStep = 4;
 
   const {
@@ -99,7 +101,6 @@ export default function TransferForm() {
 
       setOpen(false);
       clearTransfer();
-
     } catch (error) {
       console.error(error);
 
