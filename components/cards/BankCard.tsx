@@ -32,7 +32,7 @@ export default function BankCard({
           width={110}
           height={40}
         />
-        <div className="flex items-center justify-between text-white text-[18px] tracking-[4px] font-medium">
+        <div className="flex items-center justify-between text-white text-[21.49px] tracking-[4px] font-medium">
           <span>5325</span>
           <span>****</span>
           <span>****</span>
@@ -41,13 +41,13 @@ export default function BankCard({
         <div className="flex justify-between items-end text-white">
           <div>
             <p className="text-[11px] opacity-80 mb-1"></p>
-            <p className="text-[20px]">{holder}</p>
+            <p className="text-[12.62px]">{holder}</p>
           </div>
 
           <div className="text-right">
-            <p className="text-[11px] opacity-80">Expire date</p>
+            <p className="text-[7.18px] opacity-80">Expire date</p>
 
-            <p className="text-[20px]">{expireDate}</p>
+            <p className="text-[12.62px]">{expireDate}</p>
           </div>
         </div>
       </div>
