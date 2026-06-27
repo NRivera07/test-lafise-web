@@ -1,4 +1,5 @@
 import Sidebar from "./Sidebar";
+import Header from "./Header";
 
 export default function DashboardLayout({
   children,
@@ -10,7 +11,7 @@ export default function DashboardLayout({
       <Sidebar />
 
       <main className="flex-1 flex flex-col">
-
+        <Header />
 
         <section className="p-8 overflow-auto flex-1">{children}</section>
       </main>
