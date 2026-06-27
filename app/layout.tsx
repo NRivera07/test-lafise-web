@@ -1,11 +1,12 @@
-import { Open_Sans } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import Providers from "@/providers/Providers";
 
-const openSans = Open_Sans({
+const poppins = Poppins({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
-  variable: "--font-open-sans",
+  variable: "--font-poppins",
 });
 
 export default function RootLayout({
@@ -15,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={openSans.className}>
+      <body className={poppins.className}>
         <Providers>{children}</Providers>
       </body>
     </html>
