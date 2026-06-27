@@ -40,7 +40,7 @@ export default function TransferStepper({ currentStep }: Props) {
                 <div className="absolute top-[18px] left-1/2 w-full h-[2px] bg-text-secondary" />
               )}
               <div
-                className={`relative z-10 flex h-9 w-9 items-center justify-center rounded-full text-sm font-semibold
+                className={`relative flex h-9 w-9 items-center justify-center rounded-full text-sm font-semibold
                 ${
                   completed
                     ? "bg-[#3B8668] text-white"

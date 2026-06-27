@@ -22,7 +22,7 @@ export default function FloatingInput({
   return (
     <div className="relative">
       {hasValue && (
-        <span className="absolute left-4 -top-2 z-10 bg-white px-1 text-[13px] font-medium text-[#3B8668]">
+        <span className="absolute left-4 -top-2 bg-white px-1 text-[13px] font-medium text-[#3B8668]">
           {label}
         </span>
       )}
