@@ -1,5 +1,5 @@
-import AccountsSection from "@/components/accounts/AccountsSection";
-import CardsSection from "@/components/home/CardsSection";
+import AccountsSection from "@/components/sections/AccountsSection";
+import CardsSection from "@/components/sections/CardsSection";
 
 export default function Home() {
   return (
