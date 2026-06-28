@@ -29,7 +29,6 @@ export default function TransferStepper({ currentStep }: Props) {
       <div className="grid grid-cols-4">
         {steps.map((step, index) => {
           const completed = currentStep > index + 1;
-          const active = currentStep === index + 1;
 
           return (
             <div

@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 
 import { useAccounts } from "@/hooks/useAccounts";
 import { useTransferStore } from "@/store/transfer.store";
@@ -28,7 +28,7 @@ export default function TransferForm() {
   const [open, setOpen] = useState(false);
 
   const { mutateAsync, isPending } = useTransfer();
-  
+
   const accountQueries = useAccounts(
     user?.products.map((product) => product.id) ?? [],
   );
@@ -45,7 +45,6 @@ export default function TransferForm() {
   const {
     control,
     register,
-    watch,
     handleSubmit,
     formState: { errors },
   } = useForm<TransferFormValues>({
@@ -57,9 +56,20 @@ export default function TransferForm() {
     },
   });
 
-  const selectedOrigin = watch("origin");
-  const destination = watch("destination");
-  const amount = watch("amount");
+  const selectedOrigin = useWatch({
+    control,
+    name: "origin",
+  });
+
+  const destination = useWatch({
+    control,
+    name: "destination",
+  });
+
+  const amount = useWatch({
+    control,
+    name: "amount",
+  });
 
   const selectedAccount = accounts.find(
     (account) => account.account_number === selectedOrigin,

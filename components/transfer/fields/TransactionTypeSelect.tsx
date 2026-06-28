@@ -93,7 +93,7 @@ export default function TransactionTypeSelect({ control }: Props) {
                       `cursor-pointer px-5 py-4 ${active ? "bg-[#EDF5F2]" : ""}`
                     }
                   >
-                    {({ selected }) => (
+                    {() => (
                       <div className="flex justify-between">
                         <span className="text-text-primary">
                           {option.label}

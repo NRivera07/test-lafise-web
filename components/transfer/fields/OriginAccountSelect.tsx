@@ -93,7 +93,7 @@ export default function OriginAccountSelect({ control, accounts }: Props) {
                         }`
                       }
                     >
-                      {({ selected }) => (
+                      {() => (
                         <div className="flex items-center">
                           <span className="font-medium text-[#3B8668]">
                             {account.currency} Cuenta
