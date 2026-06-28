@@ -59,7 +59,11 @@ export default function TransactionTypeSelect({ control }: Props) {
                   }
                 `}
               >
-                <span className="text-[#8D918D]">
+                <span
+                  className={
+                    field.value ? "text-text-primary" : "text-[#8D918D]"
+                  }
+                >
                   {options.find((o) => o.value === field.value)?.label ??
                     "Seleccione una opción"}
                 </span>
