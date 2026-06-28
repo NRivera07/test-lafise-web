@@ -1,36 +1,250 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💳 Test Lafise Web
 
-## Getting Started
+Aplicación desarrollada con **Next.js 16**, **React 19**, **TypeScript**, **TanStack Query**, **React Hook Form** y **Zustand** como parte de una prueba técnica para la gestión de cuentas bancarias y transferencias.
 
-First, run the development server:
+## Características
+
+- Consulta de cuentas bancarias.
+- Consulta de transacciones.
+- Creación de transferencias entre cuentas.
+- Confirmación de transferencia mediante modal.
+- Validaciones de formularios.
+- Estados de carga (Skeletons).
+- Estados vacíos (Empty States).
+- Notificaciones con React Toastify.
+- Manejo de estado global con Zustand.
+- Consumo de API mediante TanStack Query.
+
+---
+
+## Tecnologías utilizadas
+
+- Next.js 16 (App Router)
+- React 19
+- TypeScript
+- TailwindCSS
+- React Hook Form
+- TanStack Query
+- Zustand
+- Headless UI
+- Lucide React
+- React Toastify
+
+---
+
+## Instalación
+
+Clonar el proyecto
+
+```bash
+git clone <https://github.com/NRivera07/test-lafise-web.git>
+```
+
+Entrar al proyecto
+
+```bash
+cd test-lafise-web
+```
+
+Instalar dependencias
+
+```bash
+npm install
+```
+
+Crear el archivo de variables de entorno
+
+```env
+NEXT_PUBLIC_API_URL=<api-url>
+```
+
+Ejecutar el proyecto
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run dev
+```
 
-## Learn More
+Inicia el servidor de desarrollo.
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Genera el build de producción.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run start
+```
 
-## Deploy on Vercel
+Ejecuta la aplicación compilada.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run lint
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Ejecuta ESLint.
+
+---
+
+## Estructura del proyecto
+
+```
+app/
+ ├── (dashboard)
+        ├── transactions
+        ├── transfer
+ └── layout.tsx
+ ├── page.tsx
+
+components/
+ ├── accounts
+ ├── sections
+ ├── layout
+ ├── cards
+ ├── transactions
+ ├── transfer
+ └── ui
+
+data/
+
+hooks/
+
+providers/
+
+services/
+
+store/
+
+types/
+```
+
+La aplicación sigue una arquitectura basada en responsabilidades:
+
+- **components/** → Componentes de UI.
+- **hooks/** → Hooks reutilizables para React Query.
+- **services/** → Comunicación con la API.
+- **store/** → Estado global mediante Zustand.
+- **types/** → Tipado compartido.
+- **providers/** → Providers globales.
+
+---
+
+## Manejo de estado
+
+Se utilizan dos enfoques diferentes según la naturaleza de los datos.
+
+### TanStack Query
+
+Responsable de:
+
+- Obtener cuentas.
+- Obtener transacciones.
+- Cachear información.
+- Refetch automático.
+- Manejo de estados de carga.
+
+### Zustand
+
+Responsable de:
+
+- Información temporal de la transferencia.
+- Transferencias creadas durante la sesión.
+
+Esto permite mostrar inmediatamente una nueva transferencia aunque el servicio remoto no la devuelva.
+
+---
+
+## Formularios
+
+Los formularios fueron implementados con **React Hook Form**, incluyendo:
+
+- Campos requeridos.
+- Validaciones personalizadas.
+- Mensajes de error.
+- Componentes reutilizables.
+- Floating Labels.
+
+---
+
+## Componentes reutilizables
+
+Se implementaron distintos componentes reutilizables, entre ellos:
+
+- FloatingInput
+- TransferStepper
+- Modal de confirmación
+- Skeletons
+- Empty States
+- Account Card
+- Tables
+- Listbox personalizados
+
+---
+
+## Manejo de errores
+
+La aplicación utiliza **React Toastify** para informar al usuario cuando ocurre un error o una operación es exitosa.
+
+Se notifican eventos como:
+
+- Error de autenticación.
+- Error al consultar datos.
+- Error al realizar una transferencia.
+- Transferencia realizada correctamente.
+
+---
+
+# Capturas de pantalla
+
+### Dashboard
+
+<p align="center">
+  <img src="./screenshots/dashboard.png" width="900" alt="Dashboard">
+</p>
+
+### Nueva transferencia
+
+<p align="center">
+  <img src="./screenshots/transfer-1.png" width="900" alt="Transferencia">
+</p>
+<p align="center">
+  <img src="./screenshots/transfer-2.png" width="900" alt="Transferencia">
+</p>
+<p align="center">
+  <img src="./screenshots/transfer-3.png" width="900" alt="Transferencia">
+</p>
+<p align="center">
+  <img src="./screenshots/transfer-4.png" width="900" alt="Transferencia">
+</p>
+<p align="center">
+  <img src="./screenshots/success-transfer.png" width="900" alt="Transferencia">
+</p>
+
+### Confirmación
+
+<p align="center">
+  <img src="./screenshots/confirmation-transfer.png" width="900" alt="Confirmación">
+</p>
+
+### Historial de transacciones
+
+<p align="center">
+  <img src="./screenshots/my-transactions.png" width="900" alt="Transacciones">
+</p>
+
+---
+
+## Autor
+
+Desarrollado por **Nohelia Rivera** como parte de una prueba técnica utilizando buenas prácticas de arquitectura, separación de responsabilidades y componentes reutilizables.
+
+- GitHub: https://github.com/NRivera07
+- LinkedIn: https://www.linkedin.com/in/nohelia-rivera-14bb7b1b8/
